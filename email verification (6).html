@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Verification</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    }
+    
+    .container {
+    background-color: #fff;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    }
+    
+    h2 {
+    color: #333;
+    }
+    
+    p {
+    color: #777;
+    margin-top: 10px;
+    }
+    
+    .email-input, .otp-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    }
+    
+    input[type="email"], input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    }
+    
+    button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    }
+    
+    button:hover {
+    background-color: #0056b3;
+    }
+    
+    #message, #otp-message {
+    margin-top: 20px;
+    font-weight: bold;
+    }
+    
+   
+    .hidden {
+    display: none;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Email Verification</h2>
+        <p>Enter your email to receive an OTP:</p>
+        <div class="email-input">
+            <input type="email" id="email" placeholder="Enter your email">
+            <button id="send-otp-button">Send OTP</button>
+        </div>
+        <p id="message"></p>
+    </div>
+
+    <div class="container hidden" id="otp-container">
+        <h2>OTP Verification</h2>
+        <p>Enter the OTP sent to your email:</p>
+        <div class="otp-input">
+            <input type="text" id="otp" placeholder="Enter OTP">
+            <button id="verify-otp-button">Verify OTP</button>
+        </div>
+        <p id="otp-message"></p>
+    </div>
+    <script>
+    document.getElementById("send-otp-button").addEventListener("click", function () {
+    const userEmail = document.getElementById("email").value;
+    const message = document.getElementById("message");
+    
+
+    if (!isValidEmail(userEmail)) {
+    message.style.color = "red";
+    message.innerText = "Please enter a valid email address.";
+    return;
+    }
+    
+  
+    sendOTPEmail(userEmail)
+    .then(() => {
+    message.style.color = "green";
+    message.innerText = "OTP sent to your email. Please check your inbox.";
+    })
+    .catch((error) => {
+    message.style.color = "red";
+    message.innerText = "Error sending OTP. Please try again later.";
+    });
+    });
+    
+
+    function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+    }
+    
+    function sendOTPEmail(email) {
+    return new Promise((resolve, reject) => {
+    
+    setTimeout(() => {
+    
+    const generatedOTP = Math.floor(100000 + Math.random() * 900000);
+    
+    console.log(`OTP for ${email}: ${generatedOTP}`); 
+    
+    resolve();
+    }, 2000); 
+    });
+    }
+    
+document.getElementById("send-otp-button").addEventListener("click", function () {
+    const userEmail = document.getElementById("email").value;
+    const message = document.getElementById("message");
+
+   
+    if (!isValidEmail(userEmail)) {
+        message.style.color = "red";
+        message.innerText = "Please enter a valid email address.";
+        return;
+    }
+
+    sendOTPEmail(userEmail)
+        .then(() => {
+            message.style.color = "green";
+            message.innerText = "OTP sent to your email. Please check your inbox.";
+            document.getElementById("otp-container").classList.remove("hidden");
+            document.getElementById("email").disabled = true;
+            document.getElementById("send-otp-button").disabled = true;
+        })
+        .catch((error) => {
+            message.style.color = "red";
+            message.innerText = "Error sending OTP. Please try again later.";
+        });
+});
+
+document.getElementById("verify-otp-button").addEventListener("click", function () {
+    const enteredOTP = document.getElementById("otp").value;
+    const otpMessage = document.getElementById("otp-message");
+
+    if (enteredOTP === "334455") {
+        otpMessage.style.color = "green";
+        otpMessage.innerText = "OTP verification successful!";
+    } else {
+        otpMessage.style.color = "red";
+        otpMessage.innerText = "OTP verification failed. Please try again.";
+    }
+});
+document.getElementById("verify-otp-button").addEventListener("click", function () {
+    const enteredOTP = document.getElementById("otp").value;
+    const otpMessage = document.getElementById("otp-message");
+
+    if (enteredOTP === "334455") {
+        otpMessage.style.color = "green";
+        otpMessage.innerText = "OTP verification successful! Opening image...";
+
+
+        const imageUrl = "your-image-url.jpg"; 
+        const newWindow = window.open(imageUrl, "_blank");
+        
+        
+        if (!newWindow || newWindow.closed || typeof newWindow.closed === "undefined") {
+            otpMessage.style.color = "red";
+            otpMessage.innerText = "Failed to open image. Please check your popup blocker settings.";
+        }
+    } else {
+        otpMessage.style.color = "red";
+        otpMessage.innerText = "OTP verification failed. Please try again.";
+    }
+});
+
+   <div id="image-container" class="hidden">
+   <img src="image.jpg" alt=" Image">
+   </div>
+    </script>
+</body>
+</html>

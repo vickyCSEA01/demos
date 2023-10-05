@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    }
+    
+    .bulb {
+    width: 100px;
+    height: 150px;
+    background-color: #f0e68c;
+    border-radius: 50%;
+    position: relative;
+    }
+    
+    .light {
+    width: 80px;
+    height: 80px;
+    background-color: #ffff00;
+    border-radius: 50%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    }
+    
+    button {
+    margin-top: 20px;
+    }
+    
+    </style>
+    <title>Bulb On/Off</title>
+</head>
+<body>
+    <div class="bulb">
+        <div class="light"></div>
+    </div>
+    <button id="toggleButton">Toggle Bulb</button>
+    <script>
+    const bulb = document.querySelector('.bulb');
+    const light = document.querySelector('.light');
+    const toggleButton = document.getElementById('toggleButton');
+    let isBulbOn = true;
+    
+    toggleButton.addEventListener('click', () => {
+    if (isBulbOn) {
+    light.style.display = 'none';
+    toggleButton.textContent = 'Turn Bulb On';
+    } else {
+    light.style.display = 'block';
+    toggleButton.textContent = 'Turn Bulb Off';
+    }
+    isBulbOn = !isBulbOn;
+    });
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+
+
+<head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+<title>VCETnet</title>
+
+
+<meta name="generator" content="Bootply" />
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<script>
+
+
+function validateForm()
+
+
+{
+
+
+var k=document.forms["form"]["reg"].value;
+
+
+var s=document.forms["form"]["password"].value;
+
+
+if (k==null || k=="" || s==null || s=="")
+{
+alert("Roll Number and Password must be filled out");
+
+return false;
+
+}
+
+}
+
+</script>
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a background image and color */
+body {
+    background: url(../attendance/img/back.png),
+                url(../attendance/img/pinlayer2.png),
+                url(../attendance/img/pinlayer1.png),
+                #444;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: cover, cover, cover;
+}
+
+/* Style the navigation bar */
+.navbar {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 0;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-toggle {
+    background-color: #ffffff;
+}
+
+/* Style the navigation links */
+.navbar-nav > li > a {
+    color: #333;
+}
+
+/* Style the search bar */
+.navbar-form .form-control {
+    border-color: #333;
+}
+
+/* Style the login panel */
+.panel {
+    margin-top: 100px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.panel-heading {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+.panel-body {
+    padding: 20px;
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.btn-success {
+    background-color: #333;
+    border-color: #333;
+    width: 100%;
+}
+
+/* Add spacing at the bottom */
+.container {
+    margin-bottom: 20px;
+}
+
+/* Copyright text */
+h5 {
+    text-align: right;
+    color: white;
+    margin-right: 20px;
+}
+
+/* Reset some default browser styles */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a background image and color */
+body {
+    background: url(../attendance/img/back.png), url(../attendance/img/pinlayer2.png), url(../attendance/img/pinlayer1.png), #444;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: cover, cover, cover;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the navigation bar */
+.navbar {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-toggle {
+    background-color: #ffffff;
+}
+
+/* Style the navigation links */
+.navbar-nav > li > a {
+    color: #333;
+}
+
+/* Style the search bar */
+.navbar-form .form-control {
+    border-color: #333;
+}
+
+/* Style the login panel */
+.panel {
+    margin-top: 100px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.panel-heading {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+.panel-body {
+    padding: 20px;
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.btn-success {
+    background-color: #333;
+    border-color: #333;
+    width: 100%;
+    color: #fff;
+}
+
+/* Add spacing at the bottom */
+.container {
+    margin-bottom: 20px;
+}
+
+/* Copyright text */
+h5 {
+    text-align: right;
+    color: white;
+    margin-right: 20px;
+}
+
+/* Adjust spacing for the header and form */
+body {
+    padding-top: 70px;
+}
+
+/* Background image for the body */
+body {
+    background-color: #444;
+    background: url(../attendance/img/back.png), url(../attendance/img/pinlayer2.png), url(../attendance/img/pinlayer1.png);
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: cover, cover, cover;
+}
+
+/* Additional custom styles can be added as needed */
+
+
+
+</style>
+
+<style type="text/css">
+
+body {
+padding-top: 70px;
+}
+.wrap {
+margin-left:0;
+margin-right:0;
+}
+body{
+background: url(../attendance/img/back.png);
+background-color: #444;
+background: url(../attendance/img/pinlayer2.png),url(../attendance/img/pinlayer1.png),url(../attendance/img/back.png);
+}
+
+</style>
+</head>
+
+<body >
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #ffffff;">
+
+<div class="navbar-header">
+
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+<span class="sr-only">Toggle navigation</span>
+
+<span class="icon-bar"></span>
+
+<span class="icon-bar"></span>
+
+<span class="icon-bar"></span>
+
+</button>
+
+<a class="navbar-brand" rel="home" href="#" style="font-size:24px;"><b>VCETcloud</b></a>
+
+</div>
+
+<div class="collapse navbar-collapse">
+
+<ul class="nav navbar-nav">
+
+<li><a href="../../../col/index.php">Home</a></li>
+
+<li><a href="../../../col/attendance">VCET Attendance</a></li>
+
+<li><a href="#">VCET Mail</a></li>
+
+<li><a href="#">VCET Library</a></li>
+
+<li class="dropdown">
+
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">>></b></a>
+
+<ul class="dropdown-menu">
+
+<li><a href="#">Department</a></li>
+
+<li><a href="#">Alumini</a></li>
+
+<li><a href="#">Clubs & Activities</a></li>
+
+<li><a href="#">Gallery</a></li>
+
+</ul>
+
+</li>
+
+</ul>
+
+<div class="col-sm-3 col-md-3 pull-right">
+
+<form class="navbar-form" role="search">
+
+<div class="input-group">
+
+<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+
+<div class="input-group-btn">
+
+<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+
+</div>
+
+
+</div>
+
+
+</form>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+<div class="container">
+
+
+<div class="row vertical-offset-100">
+
+
+<div class="col-md-4 col-md-offset-4">
+
+
+<div class="panel panel-default">
+
+
+<div class="panel-heading">
+
+
+<h3 class="panel-title">Please sign in</h3>
+
+
+</div>
+
+
+<div class="panel-body">
+
+
+<form accept-charset="UTF-8" name="form" action="checklogin.php" onsubmit="return validateForm()" method="post">
+
+
+<fieldset>
+
+
+<div class="form-group">
+
+
+<input class="form-control" placeholder="Your Student Roll Number " name="reg" type="text">
+
+
+</div>
+
+
+<div class="form-group">
+
+
+<input class="form-control" placeholder="Your Password " name="password" type="password" value = "">
+
+
+</div>
+
+
+<div class="checkbox">
+
+
+<label style="font-color:red;">
+
+
+Enter Roll Number & Password </label>
+
+
+</div>
+
+
+<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+
+
+</fieldset>
+
+
+</form>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #ffffff;">
+
+
+
+
+
+
+<div class="navbar-header">
+
+
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+
+<span class="sr-only">Toggle navigation</span>
+
+
+<span class="icon-bar"></span>
+
+
+<span class="icon-bar"></span>
+
+
+<span class="icon-bar"></span>
+
+
+</button>
+
+
+<a class="navbar-brand" rel="home" href="#" style="font-size:24px;"><b>VCETcloud</b></a>
+
+
+</div>
+
+
+
+
+
+
+<div class="collapse navbar-collapse">
+
+
+
+
+
+
+<ul class="nav navbar-nav">
+
+
+<li><a href="../../../col/index.php">Home</a></li>
+
+
+<li><a href="../../../col/attendance">VCET Attendance</a></li>
+
+
+<li><a href="#">VCET Mail</a></li>
+
+
+<li><a href="#">VCET Library</a></li>
+
+
+<li class="dropdown">
+
+
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">>></b></a>
+
+
+<ul class="dropdown-menu">
+
+
+<li><a href="#">Department</a></li>
+
+
+<li><a href="#">Alumini</a></li>
+
+
+<li><a href="#">Clubs & Activities</a></li>
+
+
+<li><a href="#">Gallery</a></li>
+
+
+</ul>
+
+
+</li>
+
+
+</ul>
+
+
+
+
+
+
+<div class="col-sm-3 col-md-3 pull-right">
+
+
+<form class="navbar-form" role="search">
+
+
+<div class="input-group">
+
+
+<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+
+
+<div class="input-group-btn">
+
+
+<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+
+
+</div>
+
+
+</div>
+
+
+</form>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+</div><!-- /.container -->
+
+
+
+
+
+
+<script type='text/javascript' src="../jquery.js"></script>
+
+
+<script src="img/TweenLite.min.js"></script>
+
+
+
+
+
+
+<script type='text/javascript' src="../js/bootstrap.min.js"></script>
+
+<script type='text/javascript'>
+
+$(document).ready(function() {
+
+$(document).mousemove(function(e){
+
+TweenLite.to($('body'),
+
+.5,
+
+{ css:
+
+
+{
+
+
+backgroundPosition: ""+ parseInt(event.pageX/8) + "px "+parseInt(event.pageY/'12')+"px, "+parseInt(event.pageX/'15')+"px "+parseInt(event.pageY/'15')+"px, "+parseInt(event.pageX/'30')+"px "+parseInt(event.pageY/'30')+"px"
+
+
+}
+
+
+});
+
+
+});
+
+
+
+
+
+
+});
+
+
+
+
+
+
+</script>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+<div style="text-align:right">
+
+
+<h5><right><font color = white>Design and Maintained by Department of CSE</font></right></h5>
+
+
+
+
+
+
+</div>
+
+
+</body>
+
+
+</html>
+
+
+
+
+
